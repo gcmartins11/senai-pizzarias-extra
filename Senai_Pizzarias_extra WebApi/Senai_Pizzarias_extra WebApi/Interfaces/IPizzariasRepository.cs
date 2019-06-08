@@ -9,5 +9,7 @@ namespace Senai_Pizzarias_extra_WebApi.Interfaces
     interface IPizzariasRepository
     {
         List<Pizzarias> Listar();
+        void Cadastrar(Pizzarias pizzaria);
+        Pizzarias ListarPorNome(string nome);
     }
 }

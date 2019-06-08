@@ -30,6 +30,33 @@ namespace Senai_Pizzarias_extra_WebApi.Controllers
             }
             catch (System.Exception ex)
             {
+                throw (ex);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Post(Pizzarias pizzaria)
+        {
+            try
+            {
+                PizzariasRepository.Cadastrar(pizzaria);
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        [HttpGet("{nome}")]
+        public IActionResult ListarPorNome(string nome)
+        {
+            try
+            {
+                return Ok(PizzariasRepository.ListarPorNome(nome));
+            }
+            catch (System.Exception ex)
+            {
                 throw(ex);
             }
         }
