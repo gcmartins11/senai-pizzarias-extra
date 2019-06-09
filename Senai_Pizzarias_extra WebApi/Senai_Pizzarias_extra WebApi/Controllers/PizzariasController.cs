@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Senai_Pizzarias_extra_WebApi.Domains;
 using Senai_Pizzarias_extra_WebApi.Interfaces;
 using Senai_Pizzarias_extra_WebApi.Repositories;
@@ -21,6 +22,7 @@ namespace Senai_Pizzarias_extra_WebApi.Controllers
             PizzariasRepository = new PizzariasRepository();
         }
 
+        [Authorize(Roles = "administrador, usuario")]
         [HttpGet]
         public IActionResult Get()
         {
@@ -34,6 +36,7 @@ namespace Senai_Pizzarias_extra_WebApi.Controllers
             }
         }
 
+        [Authorize(Roles = "administrador")]
         [HttpPost]
         public IActionResult Post(Pizzarias pizzaria)
         {
@@ -48,6 +51,7 @@ namespace Senai_Pizzarias_extra_WebApi.Controllers
             }
         }
 
+        [Authorize(Roles = "administrador, usuario")]
         [HttpGet("{nome}")]
         public IActionResult ListarPorNome(string nome)
         {

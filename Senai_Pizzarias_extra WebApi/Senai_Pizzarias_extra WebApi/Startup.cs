@@ -57,13 +57,13 @@ namespace Senai_Pizzarias_extra_WebApi
                     //Definindo o tempo de expiração
                     ValidateLifetime = true,
                     //Forma de criptografia
-                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("FsPizzarias")),
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("SpMedGroup.WebApi")),
                     //Tempo de expiração do Token
                     ClockSkew = TimeSpan.FromMinutes(30),
                     //Nome da Issuer, de onde esta vindo
-                    ValidIssuer = "FsPizzarias",
+                    ValidIssuer = "Fs.Pizzarias",
                     //Nome da Audience, de onde esta vindo
-                    ValidAudience = "FsPizzarias"
+                    ValidAudience = "Fs.Pizzarias"
                 };
             });
 

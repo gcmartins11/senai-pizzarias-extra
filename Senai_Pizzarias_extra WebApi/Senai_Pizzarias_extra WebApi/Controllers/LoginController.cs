@@ -51,16 +51,16 @@ namespace Senai_Pizzarias_extra_WebApi.Controllers
                     new Claim("role", usuarioBuscado.IdCredencialNavigation.Credencial.ToString()),
                 };
 
-                // Chave de acesso do token
-                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("FsPizzarias"));
+                // Chave de acesso do token SpMedGroup.WebApi
+                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("SpMedGroup.WebApi"));
 
                 //Credenciais do Token - Header
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
                 //Gera o token
                 var token = new JwtSecurityToken(
-                    issuer: "FsPizzarias",
-                    audience: "FsPizzarias",
+                    issuer: "Fs.Pizzarias",
+                    audience: "Fs.Pizzarias",
                     claims: claims,
                     expires: DateTime.Now.AddMinutes(30),
                     signingCredentials: creds
